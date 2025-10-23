@@ -10,7 +10,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "front/package.json",
+      "src": "front", 
       "use": "@vercel/next"
     }
   ],
