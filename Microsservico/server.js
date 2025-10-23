@@ -14,19 +14,15 @@ connectDB();
 
 const app = express();
 
-const corsOptions = {
-  origin: '*', // Permite todas as origens
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
-  optionsSuccessStatus: 200 // Responde 200 para requisições OPTIONS
-};
-
-app.use(cors(corsOptions));
-app.options('/api/auth/*', cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // Rota base para as funcionalidades de Autenticação
 app.use('/api/auth', authRoutes);
 
-// ADICIONE ISSO NO FINAL
-module.exports = app;
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, () => {
+    // Mensagem específica para o microsserviço na porta
+    console.log(`Microsserviço de Autenticação rodando na porta ${PORT}`);
+});

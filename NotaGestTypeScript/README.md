@@ -30,4 +30,6 @@ NotaGest é uma aplicação web desenvolvida com **Next.js** focada na organiza�
 
 ```npm run dev```
 
+#### A aplicação estará disponível em http://localhost:3000/.
+
 ```

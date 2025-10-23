@@ -13,7 +13,7 @@ import Link from 'next/link';
 import axios from 'axios';
 
 // 💡 Defina a URL base do Backend a partir do .env.local
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || '/api';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000/api';
 
 const DashboardPage = () => {
     const [showMenu, setShowMenu] = useState(false);
