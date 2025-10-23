@@ -25,9 +25,5 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 
 // define a porta do servidor, usando a variável de ambiente ou 5000 como padrão
-const PORT = process.env.PORT || 5000;
-
-// inicia o servidor e o faz escutar na porta
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+// ADICIONE ISSO NO FINAL
+module.exports = app;
