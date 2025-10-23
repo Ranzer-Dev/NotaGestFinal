@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "microserviço/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "notagesexpress/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "front/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/micro/(.*)",
+      "destination": "/microserviço/server.js"
+    },
+    {
+      "source": "/api/notagest/(.*)",
+      "destination": "/notagesexpress/server.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/front/$1"
+    }
+  ],
+  "installCommand": "npm install && npm install --prefix front && npm install --prefix microserviço && npm install --prefix notagesexpress"
+}

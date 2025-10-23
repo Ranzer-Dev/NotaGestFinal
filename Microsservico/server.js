@@ -20,9 +20,5 @@ app.use(express.json());
 // Rota base para as funcionalidades de Autenticação
 app.use('/api/auth', authRoutes);
 
-const PORT = process.env.PORT || 5001;
-
-app.listen(PORT, () => {
-    // Mensagem específica para o microsserviço na porta
-    console.log(`Microsserviço de Autenticação rodando na porta ${PORT}`);
-});
+// ADICIONE ISSO NO FINAL
+module.exports = app;
