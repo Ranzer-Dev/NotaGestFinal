@@ -91,7 +91,8 @@ app.use((req, res, next) => {
 
 // --- Inicialização do Servidor ---
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`\n[INFO] Servidor rodando e escutando na porta ${PORT}`);
-    console.log(`[INFO] Pressione CTRL+C para parar o servidor.`);
+const HOST = '0.0.0.0';
+
+app.listen(PORT, HOST, () => {
+  console.log(`Servidor rodando em http://${HOST}:${PORT}`);
 });

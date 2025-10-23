@@ -21,8 +21,8 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5001;
+const HOST = '0.0.0.0';
 
-app.listen(PORT, () => {
-    // Mensagem específica para o microsserviço na porta
-    console.log(`Microsserviço de Autenticação rodando na porta ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Servidor rodando em http://${HOST}:${PORT}`);
 });
