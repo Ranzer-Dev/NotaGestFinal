@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const connectDB = require('./config/mongoDb');
 const userRoutes = require('./routes/userRoutes');
 
 // 1. CARREGA AS VARIÁVEIS DE AMBIENTE (ISSO DEVE VIR PRIMEIRO)
