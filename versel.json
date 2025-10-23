@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "microserviço/server.js",
+      "src": "microservico/server.js",
       "use": "@vercel/node"
     },
     {
@@ -17,7 +17,7 @@
   "rewrites": [
     {
       "source": "/api/auth/(.*)",
-      "destination": "/microserviço/server.js"
+      "destination": "/microservico/server.js"
     },
     {
       "source": "/api/users/(.*)",
@@ -28,5 +28,5 @@
       "destination": "/front/$1"
     }
   ],
-  "installCommand": "npm install && npm install --prefix front && npm install --prefix microserviço && npm install --prefix notagesexpress"
+  "installCommand": "npm install && npm install --prefix front && npm install --prefix microservico && npm install --prefix notagesexpress"
 }
