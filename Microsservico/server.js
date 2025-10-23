@@ -14,7 +14,15 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: '*', // Permite todas as origens
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
+  optionsSuccessStatus: 200 // Responde 200 para requisições OPTIONS
+};
+
+app.use(cors(corsOptions));
+app.options('/api/auth/*', cors(corsOptions));
 app.use(express.json());
 
 // Rota base para as funcionalidades de Autenticação
