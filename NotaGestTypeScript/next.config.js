@@ -5,12 +5,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/micro/:path*',
-        destination: 'http://localhost:5001/:path*',
+        source: '/api/auth/:path*',
+        destination: 'http://localhost:5001/api/auth/:path*',
       },
       {
-        source: '/api/notagest/:path*',
-        destination: 'http://localhost:5000/:path*',
+        source: '/api/users/:path*',
+        destination: 'http://localhost:5000/api/users/:path*',
       },
     ]
   },
