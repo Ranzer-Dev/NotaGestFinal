@@ -3,9 +3,9 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const connectDB = require('microsservico/config/mongoDb.js'); 
+const connectDB = require('./config/mongoDb'); 
 
-const authRoutes = require('microsservico/routes/authRoutes'); 
+const authRoutes = require('./routes/authRoutes'); 
 
 dotenv.config();
 
