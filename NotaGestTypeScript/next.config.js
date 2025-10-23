@@ -1,17 +1,16 @@
-export default nextConfig;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Adicione esta seção 'rewrites'
+  
   async rewrites() {
     return [
       {
         source: '/api/micro/:path*',
-        destination: 'http://localhost:5001/:path*', // Proxy para seu microserviço
+        destination: 'http://localhost:5001/:path*',
       },
       {
         source: '/api/notagest/:path*',
-        destination: 'http://localhost:5000/:path*', // Proxy para o notagesexpress
+        destination: 'http://localhost:5000/:path*',
       },
     ]
   },
