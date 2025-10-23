@@ -10,7 +10,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "front", 
+      "src": "NotaGestTypeScript/package.json",
       "use": "@vercel/next"
     }
   ],
@@ -25,8 +25,8 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/front/$1"
+      "destination": "/NotaGestTypeScript/$1"
     }
   ],
-  "installCommand": "npm install && npm install --prefix front && npm install --prefix microservico && npm install --prefix notagesexpress"
+  "installCommand": "npm install && npm install --prefix NotaGestTypeScript && npm install --prefix microservico && npm install --prefix notagesexpress"
 }
