@@ -1,0 +1,18 @@
+# Use uma imagem Node.js leve
+FROM node:20
+
+# Define o diretório de trabalho dentro do contêiner
+WORKDIR /app
+
+# Copia o package.json e package-lock.json primeiro
+# O 'COPY package*.json ./' copia os dois
+COPY package*.json ./
+
+# Instala as dependências
+RUN npm install
+
+# Copia o restante do código-fonte
+COPY . .
+
+# O comando para iniciar o servidor
+CMD ["node", "server.js"]

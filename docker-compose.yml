@@ -1,0 +1,43 @@
+services:
+  # 1. O Serviço do Frontend (Next.js)
+  frontend:
+    build:
+      context: ./NotaGestTypeScript # Pasta do projeto
+      dockerfile: Dockerfile        # Arquivo Dockerfile a ser usado
+    ports:
+      - "3000:3000" # Mapeia a porta 3000 do contêiner para a porta 3000 da sua máquina
+    environment:
+      PORT: 3000
+      # URLs que o Next.js usará para falar com os backends
+      # 'auth-service' e 'user-service' são os nomes dos outros serviços abaixo
+      NEXT_PUBLIC_AUTH_SERVICE_URL: http://auth-service:5001
+      NEXT_PUBLIC_BACKEND_URL: http://user-service:5000
+    depends_on:
+      - auth-service
+      - user-service
+
+  # 2. O Serviço de Autenticação (microsservice)
+  auth-service:
+    build:
+      context: ./Microsservico   # Pasta do projeto
+      dockerfile: ../Dockerfile.node # Reutiliza o Dockerfile.node da raiz
+    ports:
+      - "5001:5001" # Mapeia a porta 5001 do contêiner para a porta 5001 da sua máquina
+    environment:
+      PORT: 5001 # Diz ao server.js qual porta usar
+      # Você DEVE adicionar suas variáveis de ambiente aqui!
+      DATABASE_URL: mongodb+srv://almsz_db_user:eGULh4jrQt7REedD@cluster0.54tsy0w.mongodb.net
+      JWT_SECRET: 1231314sdfsdf-asddasdas-asdasdasd-asdasd
+
+  # 3. O Serviço de Usuários (notagesexpress)
+  user-service:
+    build:
+      context: ./NotaGestExpress    # Pasta do projeto
+      dockerfile: ../Dockerfile.node # Reutiliza o Dockerfile.node da raiz
+    ports:
+      - "5000:5000" # Mapeia a porta 5000
+    environment:
+      PORT: 5000 # Diz ao server.js qual porta usar
+      # Você DEVE adicionar suas variáveis de ambiente aqui!
+      DATABASE_URL: mongodb+srv://almsz_db_user:eGULh4jrQt7REedD@cluster0.54tsy0w.mongodb.net 
+      JWT_SECRET: 1231314sdfsdf-asddasdas-asdasdasd-asdasd

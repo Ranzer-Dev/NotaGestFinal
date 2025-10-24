@@ -1,0 +1,14 @@
+# Ignora o Git
+.git
+.github
+
+# Ignora logs e arquivos do VSCode
+.vscode
+npm-debug.log
+
+# Ignora pastas node_modules de todos os projetos
+*/node_modules
+
+# Ignora pastas de build do Next.js (serão criadas no contêiner)
+*/.next
+*/.out
